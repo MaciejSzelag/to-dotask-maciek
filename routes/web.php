@@ -9,3 +9,9 @@ Route::get('/', function () {
 Route::get('/task', function () {
     return view('show-task');
 })->name('show.task');
+
+Route::get('/add-new-task', function () {
+
+    return view('add-task');
+
+})->name('add.task');

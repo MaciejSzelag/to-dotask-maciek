@@ -26,7 +26,7 @@
         </div>
         <div
             class="group w-15 h-15 rounded-[50px] mb-5 bg-indigo-200 shadow-xl shadow-gray-300 ease-in-out duration-300 opacity-75 hover:opacity-100 hover:scale-105 hover:shadow-gray-400">
-            <a href="#"
+            <a href="{{route('add.task')}}"
                 class="relative flex justify-center items-center w-full h-full text-5xl -translate-y-1 text-indigo-500">
                 &plus;
                 <span
