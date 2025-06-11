@@ -14,12 +14,12 @@
 
     <nav class="fixed  top-10 left-10">
         <div
-            class="group w-15 h-15 rounded-[50px] mb-5 bg-fuchsia-200 shadow-xl shadow-gray-300 ease-in-out duration-300 opacity-75 hover:opacity-100 hover:scale-105 hover:shadow-gray-400">
+            class="group w-15 h-15 rounded-[50px] mb-5 bg-indigo-200  shadow-xl shadow-gray-300 ease-in-out duration-300 opacity-75 hover:bg-amber-200 hover:opacity-100 hover:scale-105 hover:shadow-gray-400">
             <a href="{{route('home')}}"
-                class="static  flex justify-center items-center w-full h-full text-3xl  text-fuchsia-500">
+                class="static  flex justify-center items-center w-full h-full text-3xl  text-indigo-700 ease-in-out duration-300 hover:text-amber-500">
                 &LeftArrow;
                 <span
-                    class="absolute left-full w-50 ml-2 p-2 pl-3 pr-3 bg-fuchsia-100 text-sm opacity-0 scale-0 text-center group-hover:opacity-50 group-hover:scale-100 transition-all duration-300 rounded">
+                    class="absolute left-full w-50 ml-2 p-2 pl-3 pr-3 bg-amber-100 text-sm opacity-0 scale-0 text-center group-hover:opacity-50 group-hover:scale-100 transition-all duration-300 rounded">
                     Back to home page
                 </span>
             </a>
@@ -42,14 +42,25 @@
 
 
     </nav>
+    @if (session()->has('success'))
+    <div class="fixed top-15 left-1/2 -translate-x-1/2">
+        <div class="min-w-[300px] p-2 pl-10 pr-10 bg-green-100 border-1 border-green-300 rounded-lg text-green-300">
+            <p class="text-center">Success!</p>
+            <p class="text-center">{{session('success')}}</p>
+        </div>
+    </div>
+
+    @endif
+
 
 
     {{-- btn add new task --}}
-    <div class="w-full min-h-svh flex justify-center items-start">
-        <div class=" w-200 p-10 mt-20 rounded-xl bg-indigo-50 shadow-xl shadow-gray-300">
+    <div class="w-full min-h-svh flex justify-center items-start mb-10">
+        <div class=" w-150 p-10 mt-20 rounded-xl bg-indigo-50">
 
             <div class="flex items-center flex-col p-2 rounded-xl ">
-                <h1 class=" w-1/2 mb-10 pb-5 border-b-1 border-indigo-300 text-center text-2xl uppercase ">
+                <h1
+                    class=" w-1/2 mb-10 pb-5 border-b-1 border-indigo-300 text-center text-2xl text-indigo-600 uppercase ">
                     @yield('page-title')
                 </h1>
                 @yield('content')
