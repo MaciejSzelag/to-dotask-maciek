@@ -11,4 +11,11 @@ class Task extends Model
     protected $fillable = [
         'task_title', 'author', 'task_description',
     ];
+    public function toggleStatus()
+    {
+
+        $this->status = ! $this->status;
+        $this->save();
+
+    }
 }

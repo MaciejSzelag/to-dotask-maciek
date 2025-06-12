@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('tab-title')</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://unpkg.com/alpinejs" defer></script>
 </head>
 
 <body>
@@ -42,12 +43,23 @@
 
 
     </nav>
-    @if (session()->has('success'))
-    <div class="fixed top-15 left-1/2 -translate-x-1/2">
-        <div class="min-w-[300px] p-2 pl-10 pr-10 bg-green-100 border-1 border-green-300 rounded-lg text-green-300">
+    @if (session()->has('success') || session()->has('error'))
+    <div x-data="{ show: true }" x-init="setTimeout(() => show = false, 3000)" x-show="show" x-transition.duration.300
+        class="fixed top-15 left-1/2 -translate-x-1/2">
+        @if (session('success'))
+        <div class="min-w-[300px] p-2 pl-10 pr-10 bg-green-50 border-1 border-green-200 rounded-lg text-green-500">
             <p class="text-center">Success!</p>
             <p class="text-center">{{session('success')}}</p>
         </div>
+        @elseif(session('error'))
+        <div class="min-w-[300px] p-2 pl-10 pr-10 bg-amber-200 border-1 border-amber-200 rounded-lg text-amber-500">
+            <p class="text-center">Upss...!</p>
+            <p class="text-center">{{session('error')}}</p>
+        </div>
+        @endif
+
+
+
     </div>
 
     @endif
